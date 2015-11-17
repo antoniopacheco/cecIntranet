@@ -1,0 +1,32 @@
+{
+  "name": "Administrador CEC",
+  "version": "0.0.1",
+  "authors": [
+    "Jesus Antonio Pacheco Morales <antonio_pacheco@outlook.com>"
+  ],
+  "description": "Administrador del CEC",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "bootstrap-slider": "*",
+    "bootstrap-wysihtml5": "*",
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "satellizer": "~0.13.0",
+    "angular-bootstrap": "~0.14.3",
+    "ngstorage": "~0.3.10",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}

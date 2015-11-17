@@ -1,0 +1,36 @@
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="../../index2.html"><b>CEC</b>Intranet</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">Inicia Sesión</p>
+        <form name="loginForm" role="form" no-validate="" ng-submit="login()">
+          <div class="form-group has-feedback">
+            <input type="email" ng-model="account.email" class="form-control" placeholder="Correo">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" ng-model="account.password" class="form-control" placeholder="Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+ 				       <iCheck>
+	                <label>
+	                  <input type="checkbox"> Remember Me
+	                </label>
+	              </iCheck>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button ng-click="login()" type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
+
+     
+        <a href="#">Olvidé mi contraseña</a><br>
+        <a href="register.html" class="text-center">Solicitar Usuario</a>
+
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+
