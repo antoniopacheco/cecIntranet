@@ -11,10 +11,10 @@
 		<div class="box-header">
 			<h3 class="box-title">Lista de Instructores</h3>
 			<div class="box-tools">
-				<select ng-model="sedeFilter" ng-options='option.id as option.nombre for option in sedes'>
+				<select ng-model="sedeFilter"  ng-change="update_query()" ng-options='option.id as option.nombre for option in sedes'>
 					
 				</select>
-				<input type="text" placeholder="Buscar..." ng-model="searchQuery">
+				<input type="text" placeholder="Buscar..." ng-model="searchQuery"  ng-model-options="{debounce:700}" ng-change="update_query()">
 			</div>
 		</div>
 		<div class="box-body no-padding">
@@ -33,7 +33,7 @@
 						<td>{{instructor.nombre}}</td>
 						<td>{{instructor.email}}</td>
 						<td>{{instructor.celular}}</td>
-						<td ng-bind-html="{instructor.cursos}"></td>
+						<td><p ng-bind-html="getHtml(instructor.cursos)"></p></td>
 						<td>{{instructor.sede}}</td>
 					</tr>
 				</tbody>
@@ -42,14 +42,16 @@
 		<div class="box-footer clearfix">
 			Mostrando {{pagination.per_page}} de {{pagination.total}} Instructores
         	<ul class="pagination pagination-sm no-margin pull-right">
-        	 	<li><a href="#">&laquo;</a></li>
-        		<li ng-repeat="pagina in paginas" ng-class="{active: pagina.active}"><a ng-click="">{{pagina.pagina}}</a></li>
-	          	<li><a href="#">&raquo;</a></li>
-	          <!--   <li><a href="#">&laquo;</a></li>
-	            <li class="active"><a href="#">1</a></li>
-	            <li><a href="#">2</a></li>
-	            <li><a href="#">3</a></li>
-	            <li><a href="#">&raquo;</a></li> -->
+        	 	<li ng-if="current_page > 1">
+        	 		<a ng-click="change_pagina(current_page - 1)">&laquo;</a>
+        	 	</li>
+        		<li ng-repeat="pagina in paginas" ng-class="{active: pagina.active}">
+        			<a ng-click="change_pagina(pagina.pagina)">{{pagina.pagina}}</a>
+        		</li>
+	          	<li ng-if="current_page < pagination.total_pages">
+	          		<a ng-click="change_pagina(current_page + 1)">&raquo;</a>
+	          	</li>
+
         	</ul>
         </div>
 	</div>
