@@ -1,0 +1,56 @@
+<section class="content-header">
+	<h1>Instructores</h1>
+	<ol class="breadcrumb">
+		<li ng-sref="dashboard">Inicio</li>
+		<li ng-sref="instructores" class="active">Instructores</li>
+	</ol>
+</section>
+
+<section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">Lista de Instructores</h3>
+			<div class="box-tools">
+				<select ng-model="sedeFilter" ng-options='option.id as option.nombre for option in sedes'>
+					
+				</select>
+				<input type="text" placeholder="Buscar..." ng-model="searchQuery">
+			</div>
+		</div>
+		<div class="box-body no-padding">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nombres</th>
+						<th>Correo</th>
+						<th>Télefono</th>
+						<th>Cursos</th>
+						<th>Sede</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="instructor in instructores">
+						<td>{{instructor.nombre}}</td>
+						<td>{{instructor.email}}</td>
+						<td>{{instructor.celular}}</td>
+						<td ng-bind-html="{instructor.cursos}"></td>
+						<td>{{instructor.sede}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="box-footer clearfix">
+			Mostrando {{pagination.per_page}} de {{pagination.total}} Instructores
+        	<ul class="pagination pagination-sm no-margin pull-right">
+        	 	<li><a href="#">&laquo;</a></li>
+        		<li ng-repeat="pagina in paginas" ng-class="{active: pagina.active}"><a ng-click="">{{pagina.pagina}}</a></li>
+	          	<li><a href="#">&raquo;</a></li>
+	          <!--   <li><a href="#">&laquo;</a></li>
+	            <li class="active"><a href="#">1</a></li>
+	            <li><a href="#">2</a></li>
+	            <li><a href="#">3</a></li>
+	            <li><a href="#">&raquo;</a></li> -->
+        	</ul>
+        </div>
+	</div>
+</section>

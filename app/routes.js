@@ -9,7 +9,7 @@
     	
       $urlRouterProvider.otherwise(function($injector, $location){
         $injector.invoke(['$state', function($state) {
-          $state.go('404');
+          $state.go('app.404');
         }]);
       });
         // 
@@ -30,6 +30,7 @@
           controller: 'LogoutController'
         }); 
 
+
         $stateProvider
           .state('app', {
               url: '/app',
@@ -38,6 +39,12 @@
              // resolve: helper.resolveFor('modernizr', 'icons')
              
           })
+
+            .state('app.404',{
+              url: '/404',
+              templateUrl: 'app/components/shared/errors/404.html'
+            })
+
             .state('app.dashboard', {
               url: '/dashboard',
               title: 'Invox Admin Dashboard',
@@ -48,6 +55,13 @@
               //   label: 'inicio'
               // }
           })
+
+            .state('app.instructores',{
+              url: '/instructores',
+              title:'Instructores',
+              templateUrl: 'app/components/instructores/main.html',
+              controller: 'InstructoresController'
+            })
     }
         
 })();

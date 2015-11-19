@@ -283,7 +283,7 @@
         </a>
       </li>      
       <li ng-repeat="aplicacion in menu" ui-sref-active="active">
-        <a ui-sref="aplicacion.url">
+        <a ui-sref="{{aplicacion.url}}">
           <i class="fa {{aplicacion.icono}}"></i>
           <span>{{aplicacion.aplicacion}}</span>
         </a>
